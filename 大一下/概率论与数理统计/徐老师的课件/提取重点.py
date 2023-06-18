@@ -7,7 +7,7 @@ import datetime
 start_time = datetime.datetime.now()
 
 # 输入文件夹路径和关键字
-folder_path = 'E:\\#LJW\\#PolarBear_RM\\DoraemonLearningPocket\\大一下\\概率论与数理统计'
+folder_path = 'E:\\#LJW\\#PolarBear_RM\\DoraemonLearningPocket\\大一下\\概率论与数理统计\\徐老师的课件'
 keywords = ['小结','复习']
 
 # 创建一个新的PDF文件
@@ -15,9 +15,10 @@ output_pdf = PdfWriter()
 
 # 遍历文件夹中的每个PDF文件
 for filename in os.listdir(folder_path):
+    if filename == '概率统计各章总结.pdf':
+        break
     if filename.endswith('.pdf'):
-        if filename == '概率统计各章总结.pdf':
-            break
+        
         print('正在处理:', filename)
         filepath = os.path.join(folder_path, filename)
 
@@ -57,7 +58,7 @@ for filename in os.listdir(folder_path):
                     output_pdf.add_page(page)
 
 # 保存新的PDF文件
-output_filepath = os.path.join(folder_path, 'new_pdf.pdf')
+output_filepath = os.path.join(folder_path, '重点大综合.pdf')
 # print('正在创建新的PDF文件:', output_filepath)
 with open(output_filepath, 'wb') as f:
     output_pdf.write(f)
